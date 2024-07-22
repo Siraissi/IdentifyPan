@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Result</title>
+  </head>
+  <body>
+    <h1>Result</h1>
+    <p>Classification: {{ classification }}</p>
+    <p>Prediction: {{ prediction }}</p>
+    <img src="{{ url_for('static', filename='uploads/' + filename) }}" alt="Uploaded Image">
+    <form method="post" action="{{ url_for('feedback', filename=filename, classification=classification, prediction=prediction) }}">
+      <input type="radio" id="correto" name="feedback" value="correto">
+      <label for="correto">Correto</label><br>
+      <input type="radio" id="incorreto" name="feedback" value="incorreto">
+      <label for="incorreto">Incorreto</label><br>
+      <input type="submit" value="Enviar Feedback">
+    </form>
+    <a href="{{ url_for('upload_image') }}">Classificar outra imagem</a>
+  </body>
+</html>
