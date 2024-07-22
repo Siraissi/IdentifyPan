@@ -9,6 +9,7 @@
     <h1>Result</h1>
     <p>Classification: {{ classification }}</p>
     <p>Prediction: {{ prediction }}</p>
+    <p>Image URL: {{ url_for('static', filename='uploads/' + filename) }}</p>
     <img src="{{ url_for('static', filename='uploads/' + filename) }}" alt="Uploaded Image">
     <form method="post" action="{{ url_for('feedback', filename=filename, classification=classification, prediction=prediction) }}">
       <input type="radio" id="correto" name="feedback" value="correto">
